@@ -1,0 +1,6 @@
+name: dc-children-church-checkin-prod
+services:
+- name: web
+  git:
+    repo_clone_url: https://github.com/DC-Dev-Team/children-church-check-in-app.git
+    branch: main
