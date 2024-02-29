@@ -1,6 +1,5 @@
 'use client'
 import { useEffect, useContext } from 'react'
-import { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form'
 import * as yup from 'yup'
 import { useRouter } from 'next/navigation'
@@ -159,7 +158,8 @@ export default function UpdateMyProfile() {
             alertService.error(error.message, error.name)
         }
     }
-    useEffect(() => { }, [branchData, profileData])
+
+    useEffect(() => {}, [branchData, profileData])
 
     return (
         <Container>
@@ -197,14 +197,15 @@ export default function UpdateMyProfile() {
                         </Center>
                         <Box ml={8}>
                             <Button
-
+                                leftIcon={<FiEdit />}
                                 colorScheme="gray"
                                 variant="solid"
                                 size="sm"
                             >
-                                Edit picture
+                                Edit image
                             </Button>
                         </Box>
+                        {/* D3$T!NY@1234 */}
                     </Stack>
                     <Stack spacing={4}>
                         <Stack direction={['column', 'row']}>
