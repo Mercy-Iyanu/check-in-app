@@ -21,7 +21,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr'
 import { useLazyQuery, useMutation, useQuery } from '@apollo/client'
 import ReactSelect from 'react-select'
-// import { FiEdit } from 'react-icons/fi'
+import { FiEdit } from 'react-icons/fi'
 
 import { PHONE_NUMBER_REGEX } from '@/helpers/constants'
 import { AuthContext } from '@/services/AuthContext'
@@ -159,7 +159,7 @@ export default function UpdateMyProfile() {
         }
     }
 
-    useEffect(() => {}, [branchData, profileData])
+    useEffect(() => { }, [branchData, profileData])
 
     return (
         <Container>
@@ -196,16 +196,29 @@ export default function UpdateMyProfile() {
                             </Stack>
                         </Center>
                         <Box ml={8}>
-                            <Button
+                            {/* <Button
                                 leftIcon={<FiEdit />}
                                 colorScheme="gray"
                                 variant="solid"
                                 size="sm"
                             >
                                 Edit image
-                            </Button>
+                            </Button> */}
                         </Box>
-                        {/* D3$T!NY@1234 */}
+                        <input
+                            type="file"
+                            id="file-upload"
+                            style={{ display: 'none' }}
+                            onChange={(event) => {
+                                const file = event.target.files?.[0];
+                                if (file) {
+                                    console.log(file.name);
+                                }
+                            }}
+                        />
+                        <label htmlFor="file-upload" style={{ display: 'inline-block', cursor: 'pointer', backgroundColor: '#f0f0f0', padding: '3px', border: '1px solid #ccc', borderRadius: '4px', transition: 'background-color 0.3s ease' }}>
+                            Edit Image
+                        </label>
                     </Stack>
                     <Stack spacing={4}>
                         <Stack direction={['column', 'row']}>
